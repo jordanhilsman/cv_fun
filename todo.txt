@@ -1,0 +1,6 @@
+want implementation for thermal imaging
+edge detection (convolution)
+image distortions (swirl, pinch, fisheye)
+recursive images
+double exposure & alpha blending
+Use edge detection and color quantization to turn a photo into a cartoon-style image?

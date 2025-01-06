@@ -37,6 +37,8 @@ def process_image_to_ascii(image, canvas_size=(640, 480), new_width=100):
 # Example with webcam
 cap = cv2.VideoCapture(0)
 
+images = []
+
 while True:
     ret, frame = cap.read()
     if not ret:
@@ -44,6 +46,7 @@ while True:
 
     # Convert the frame to ASCII art
     ascii_frame = process_image_to_ascii(frame, canvas_size=(640, 480), new_width=100)
+    images.append(ascii_frame)
 
     # Display the ASCII art
     cv2.imshow("ASCII Art", ascii_frame)
@@ -51,6 +54,13 @@ while True:
     # Exit on 'q' key
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
+print("Writing to video")
+video = cv2.VideoWriter('ascii.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 30, (640, 480))
+video.fourcc(*'H264')
+
+for image in images:
+    video.write(image)
 
 cap.release()
 cv2.destroyAllWindows()
