@@ -113,7 +113,7 @@ while True:
         break
 
 print("Writing to video")
-video = cv2.VideoWriter(video_path, cv2.VideoWriter_fourcc(*'XVID'), 15, (width, height))
+video = cv2.VideoWriter(video_path, cv2.VideoWriter_fourcc(*'mp4v'), 15, (width, height))
 video.fourcc(*'H264')
 
 for image in images:

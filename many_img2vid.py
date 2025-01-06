@@ -77,6 +77,7 @@ def glitch_color(frame, intensity):
     for _ in range(intensity):
         x = np.random.randint(1,w)
         y = np.random.randint(1,h)
+        ph = frame
         frame[:, x:, 0] = frame[:, :-x, 1]
         frame[:, :-x, 2] = r[:, x:]
         frame[y:, :, 1] = frame[:-y, :, 2]
@@ -125,7 +126,7 @@ while True:
         break
 
 print("Writing to video")
-video = cv2.VideoWriter(video_path, cv2.VideoWriter_fourcc(*'XVID'), 15, (width, height))
+video = cv2.VideoWriter(video_path, cv2.VideoWriter_fourcc(*'mp4v'), 15, (width, height))
 video.fourcc(*'H264')
 
 for image in images:

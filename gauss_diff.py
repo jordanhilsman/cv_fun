@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import cv2
+import random
 import numpy as np
+import os
 
 cap = cv2.VideoCapture(0)
 
